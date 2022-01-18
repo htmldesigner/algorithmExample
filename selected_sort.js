@@ -8,12 +8,9 @@ function selected_sort(array) {
                 idxMin = j
             }
         }
-
-        let tmp = array[i]
-        array[i] = array[idxMin]
-        array[idxMin] = tmp
-
-
+        let tmp = array[i] // Временно сохраняем значение на текущей итерации
+        array[i] = array[idxMin] // Меняем текущее значение на наеденное мининмальное значение во внутриннем циклк
+        array[idxMin] = tmp // Минимальное значение заменяем значением из текущей итерации внешнего цикла
     }
     return array
 }
