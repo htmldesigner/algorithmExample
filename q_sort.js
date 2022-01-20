@@ -1,8 +1,8 @@
 let array = Array.from({length: 20}, (e, i) => i + 1).reverse()
 
-function qSort(array){
+function qSort(array) {
 
-    if (array.length <= 1 ){
+    if (array.length <= 1) {
         return array
     }
 
@@ -12,12 +12,12 @@ function qSort(array){
     let pivot = array[pivotIndex]
 
     for (let i = 0; i < array.length; i++) {
-        if(array[i] === pivot){
+        if (array[i] === pivot) {
             continue
         }
-        if (array[i] < pivot){
+        if (array[i] < pivot) {
             less.push(array[i])
-        }else {
+        } else {
             more.push(array[i])
         }
     }
