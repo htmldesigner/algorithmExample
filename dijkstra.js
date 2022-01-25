@@ -5,14 +5,22 @@
 // Нужна хеш таблица для хранения стоимости всех узлов let costs = {}
 // Функция findLowerCostNode вернет узел с наименьшей стоимостью
 
-const graph = {}
-graph.a = {b: 2, c: 1}
-graph.b = {f: 7}
-graph.c = {d: 5, e: 2}
-graph.d = {f: 2}
-graph.e = {f: 1}
-graph.f = {g: 1}
-graph.g = {}
+let graph = {}
+graph.a = {b: 7, d: 9, c: 14}
+graph.b = {d: 10, f: 15}
+graph.c = {e: 9, b: 2}
+graph.e = {f: 6}
+graph.d = {c: 2, f: 11}
+graph.f = {}
+
+// const graph = {}
+// graph.a = {b: 2, c: 1}
+// graph.b = {f: 7}
+// graph.c = {d: 5, e: 2}
+// graph.d = {f: 2}
+// graph.e = {f: 1}
+// graph.f = {g: 1}
+// graph.g = {}
 
 function shortPath(graph, start, end) {
     let costs = {}
@@ -34,7 +42,7 @@ function shortPath(graph, start, end) {
 
         Object.keys(neighbors).forEach(neighbor => { // Проверка соседей текущего узла
             let newCost = cost + neighbors[neighbor] // Стоимость текущего узла + сосед
-            if (costs[neighbor] > newCost) { // Если стоимость текущего узла + сосед (newCost) меньше чем старая стоимость обнавляем стоимость соседа
+            if (costs[neighbor] > newCost) { // Если стоимость текущего узла + сосед (newCost) меньше чем старая стоимость соседа, обнавляем стоимость соседа
                 costs[neighbor] = newCost
                 parents[neighbor] = node
             }
@@ -65,4 +73,4 @@ function findLowerCostNode(costs, processed) {
     return lowestCostNode
 }
 
-console.log(shortPath(graph, 'a', 'g'))
+console.log(shortPath(graph, 'a', 'f'))
